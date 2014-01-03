@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>新年占い</title>
+	<meta name="description" content="Examples and documentation on grumble.js">
+	<meta name="author" content="James Cryer">
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/grumble.min.css') }}">
+	<link href="{{ url_for('static', filename='bootstrap/css/bootstrap.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/flat-ui.css') }}" rel="stylesheet">
+    	<link href="{{ url_for('static', filename='css/demo.css') }}" rel="stylesheet">
+
+	<script src="{{ url_for('static', filename='js/jquery-2.0.3.min.js' )}}"></script>
+	<script src="{{ url_for('static', filename='js/jquery-ui-1.10.3.custom.min.js' )}}"></script>
+    	<script src="{{ url_for('static', filename='js/jquery.ui.touch-punch.min.js' )}}"></script>
+    	<script src="{{ url_for('static', filename='js/bootstrap.min.js' )}}"></script>
+    	<script src="{{ url_for('static', filename='js/bootstrap-select.js' )}}"></script>
+    	<script src="{{ url_for('static', filename='js/bootstrap-switch.js' )}}"></script>
+    	<script src="{{ url_for('static', filename='js/flatui-checkbox.js' )}}"></script>
+    	<script src="{{ url_for('static', filename='js/flatui-radio.js' )}}"></script>
+    	<script src="{{ url_for('static', filename='js/jquery.tagsinput.js' )}}"></script>
+    	<script src="{{ url_for('static', filename='js/jquery.placeholder.js' )}}"></script>
+    	<script src="{{ url_for('static', filename='js/jquery.stacktable.js' )}}"></script>
+    	<script src="{{ url_for('static', filename='js/application.js' )}}"></script>
+    	<script src="{{ url_for('static', filename='js/jquery.grumble.min.js' )}}"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript"></script>
+
+	<style>
+		body {
+			font-size: 16px;
+			line-height: 24px;
+			background: #fff;
+			color: #330;
+			font-family: "Georgia", FreeSerif, serif;
+			padding-left: 30px;
+			}
+		h1, h2, h3, h4, h5, h6 {
+			margin-top: 40px;
+			display:inline-block;
+			}
+	</style>
+</head>
+
+<body>
+
+	<div id="container">
+		<center>
+			<h1>新年エラー占い</h1>
+		</center>
+	</div>
+
+	<div class="col-md-3">
+          <select name="herolist" value="X-Men" class="select-block">
+            <option value="0">Choose Error</option>
+            {% for x in data %}
+			<option value="{{ x.error }}">{{ x.error }}</option>
+            {% endfor %}
+          </select>
+     </div>
+
+	<!--  buttonにidを付加 -->
+	<div>
+		<center>
+			<button class="btn btn-primary" id="ajax-button" >占う</button>
+		</center>
+	</div>
+
+	<!-- img の name = "chara"を削除 -->
+
+	<!-- h1を追加 -->
+	<center>
+		<h1 id = "result" ></h1>
+	</center>
+ 	<center>
+		<img src="" class name = "chara">
+	</center>
+
+
+	<script type='application/javascript'>
+	var your_result;
+	var your_un;
+	$(function() {
+		$( '#ajax-button' ).click(function() {
+			var error_name = $('.select-block').val();
+			alert(error_name)
+			console.log("{{ url_for('result') }}");
+		});
+	});
+	</script>
+  
+  	<!-- 以下のscriptを追加 -->
+	<script>
+		var _gaq=[["_setAccount","UA-24631000-1"],["_trackPageview"]];
+		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+		g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+		s.parentNode.insertBefore(g,s)}(document,"script"));
+	</script>
+
+  </body>
+</html>

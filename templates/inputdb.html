@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>エラー占い</title>
+</head>
+<body>
+	<h2>DBへ入力</h2>
+	<form action="{{ url_for('inputdb_post') }}" method=post>
+	<table>
+		<tr>
+			<td><p>エラー : </p></td>
+			<td><p><input type="text" name="error"></p></td>
+		</tr>
+		<tr>
+			<td><p>占い結果: </p></td>
+			<td><p><input type="text" name="result"></p></td>
+		</tr>
+	</table>
+	<p><input type="submit" value="Send"></p>
+	</form>
+	<table>
+		<tr>
+			<th>エラーの種類</th>
+			<th>その結果</th>
+		</tr>
+		{% for x in data %}
+		<tr>
+			<td>{{ x.error }}</td>
+			<td>{{ x.result }}ちなみに、そんなあなたにおすすめの言語はPythonです！</td>
+		</tr>
+		{% endfor %}
+	</table>
+</body>
+</html>
